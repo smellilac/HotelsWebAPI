@@ -20,7 +20,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapGet("/hotels", async (IHotelRepository rep) => 
-    Results.Ok(await rep.GetHotelsAsync()))
+    Results.Extensions.Xml(await rep.GetHotelsAsync()))
     .Produces<List<Hotel>>(StatusCodes.Status200OK)
     .WithName("GetAllHotels")
     .WithTags("Getters");
@@ -31,7 +31,17 @@ app.MapGet("hotels/search/name/{query}", async (string name, IHotelRepository re
     : Results.NotFound(Array.Empty<Hotel>()))
     .Produces<List<Hotel>>(StatusCodes.Status200OK)
     .Produces(StatusCodes.Status404NotFound)
-    .WithName("GetHotelByName")
+    .WithName("GetHotelsWithName")
+    .WithTags("Getters");
+
+app.MapGet("hotels/search/location/{coordinate}", 
+    async (Coordinate coordinate,  IHotelRepository rep) =>
+    await rep.GetHotelsAsync(coordinate) is IEnumerable<Hotel> hotels
+     ? Results.Ok(hotels)
+    : Results.NotFound(Array.Empty<Hotel>()))
+    .Produces<List<Hotel>>(StatusCodes.Status200OK)
+    .Produces(StatusCodes.Status404NotFound)
+    .WithName("GetHotelsWithLocation")
     .WithTags("Getters");
 
 app.MapGet("/hotels/{id}", async (int id, IHotelRepository rep) => 
