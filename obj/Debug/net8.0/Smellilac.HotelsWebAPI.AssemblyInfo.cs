@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Smellilac.HotelsWebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8c6011822a3883c4cf6c89c6389c36c3d1d93c3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a730a53937e4d73a0f69ca12d93a511be63af67")]
 [assembly: System.Reflection.AssemblyProductAttribute("Smellilac.HotelsWebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Smellilac.HotelsWebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
